@@ -1,0 +1,134 @@
+ion-header{
+    ion-title{
+        ion-icon{
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+        }
+    }
+}
+
+ion-content{
+    --background: #fafafa;
+
+    #item-actions{
+        margin: 0px 0 40px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0px 0px 4px #888;
+        padding-bottom:0px;
+        background: #fff;
+
+
+        ion-button{
+            margin: 0 15px;
+            font-size: 13px;
+            border: none;
+            --border-width: 0;
+            text-transform: none;
+            ion-icon{
+                margin-right: 5px;
+            }
+        }
+
+    }
+
+    .user-form{
+        /*font-family: 'ClashGrotesk';*/
+        display: block;
+        overflow: hidden;
+        max-width:350px;
+        margin: 40px 20px 40px;
+
+        ion-text{
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: block;
+            font-size: 18px;
+        }
+
+        ion-item{
+            --background: none;
+            --border-color: transparent;
+            --padding: 0;
+            --inner-padding-end: 0px;
+
+            border-bottom: solid 2px #424242;
+            margin-bottom: 10px;
+            &::part(native){
+                padding: 0;
+
+                .item-inner{
+                    padding-right: 0 !important;
+                }
+            }
+            ion-input{
+                
+                padding: 0 10px !important;
+                
+
+                input.native-input.sc-ion-input-ios{
+                    padding: 10px;
+                }
+            }
+            ion-icon{
+                margin: -10px 10px 0;
+            }
+            .item-native{
+                padding-left: 0;
+            }
+        }
+
+        ion-button{
+            margin-top:10px;
+            width: 100%;
+        }
+
+        .close-session{
+            margin-top: 10px;
+            margin-bottom:30px;
+        }
+    }
+
+}
+
+#privacy-info{
+    background: #fafafa;
+    width: 100%;
+    padding: 0 0 50px;
+    margin-top:-20px;
+    box-sizing: border-box;
+    color: #424242;
+    a{
+        text-decoration: none;
+        font-weight: 500;
+    }
+}
+
+
+ion-item#privacy{
+    border: none !important;
+     ion-label{
+        font-size: 13px;
+        color: #555;
+
+        #privacy-link{
+            cursor: pointer;
+        }
+    }
+
+    ion-checkbox{
+        margin-right: 10px;
+    }
+}
+
+ion-modal{
+    --background: #fafafa;
+    color: #424242;
+
+    ion-title{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+

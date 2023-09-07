@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a routerLink="/app/home"><ion-icon name="arrow-back-outline"></ion-icon></a> Citas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+  <ion-toolbar id="calendar-action-toolbar">
+    <ion-grid>
+      <ion-row>
+        
+        <ion-col size="6" class="ion-text-center">
+          <ion-buttons class="ion-justify-content-left">
+            <ion-button id="today-button" (click)="today()"><ion-icon name="calendar-outline"></ion-icon> Hoy</ion-button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item id="ion-item-new"  class="ion-d-block" lines="none">
+            <ion-buttons slot="end">
+              <ion-button  id="add-button" routerLink="/app/citas/nueva"><ion-icon name="add-circle-outline"></ion-icon> Añadir</ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-toolbar id="calendar-title-toolbar">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-buttons start>
+            <ion-button (click)="back()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col size="10"><ion-title>{{viewTitle}}</ion-title></ion-col>
+        <ion-col size="1">
+          <ion-buttons end>
+            <ion-button (click)="next()"><ion-icon name="arrow-forward"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </ion-toolbar>
+  
+  
+  
+  <calendar [eventSource]="eventSource"
+    [calendarMode]="calendar.mode" 
+    [noEventsLabel]="calendar.noEventsLabel" 
+    [currentDate]="calendar.currentDate"
+    [locale]="calendar.locale" 
+    [allDayLabel]="calendar.allDayLabel"
+    [startingDayWeek]="calendar.startingDayWeek" 
+    [startingDayMonth]="calendar.startingDayWeek" 
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    (onRangeChanged)="onRangeChanged($event)"
+    [monthviewEventDetailTemplate]="monthviewDefaultEventDetailTemplate"
+    [step]="calendar.step">
+  </calendar>
+  
+  <ng-template #monthviewDefaultEventDetailTemplate let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
+    <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">
+        <ion-item class="event-item" *ngFor="let event of selectedDate?.events"  (click)="openEvent(event.id)">
+          <div class="event-detail">
+            <div class="event-description">{{event.description}}<br /><span class="monthview-eventdetail-timecolumn"><strong>{{event.startTime|date: 'HH:mm'}}</strong></span></div> 
+            <ion-button>VER CITA</ion-button>
+          </div>
+        </ion-item>
+        <ion-item *ngIf="selectedDate?.events.length==0">
+            <div class="no-events-label">{{noEventsLabel}}</div>
+        </ion-item>
+    </ion-list>
+  </ng-template>
+  </div>
+  </ion-content>

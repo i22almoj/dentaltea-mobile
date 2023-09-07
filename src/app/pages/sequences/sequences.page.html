@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a routerLink="/app/home"><ion-icon name="arrow-back-outline"></ion-icon></a> Apoyos visuales
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Apoyos visuales</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="user-sequences" class="sequences-list-wrap">
+    <div id="item-actions">
+      <ion-button fill="outline" routerLink="/app/apoyos-visuales/nuevo/"><ion-icon name="add-circle"></ion-icon> Añadir</ion-button> 
+    </div>
+    <h2>Mis apoyos visuales</h2>
+    
+     <ion-button id="add-sequence-btn" *ngIf="!sequences ||  !sequences.userSequences || sequences.userSequences.length==0" routerLink="/app/apoyos-visuales/nuevo/"><ion-icon name="add-circle"></ion-icon> Añadir</ion-button> 
+
+    <div class="sequences-list" *ngIf="sequences && sequences.userSequences && sequences.userSequences.length>0">
+      <div class="sequence-item" *ngFor="let sequence of sequences.userSequences" (click)="openItem(sequence.id)">
+        <div class="sequence-thumb" *ngIf="sequence.sequencePictograms && sequence.sequencePictograms.length>0" >
+          <img *ngFor="let i of numbers(sequence.sequencePictograms.length)" [src]="base_url+sequence.sequencePictograms[i].pictogram.image" width="73" alt="Thumb"/>
+        </div>
+        <hr />
+        <div class="sequence-description">{{sequence.description}}</div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="public-sequences" class="sequences-list-wrap" *ngIf="sequences && sequences.publicSequences && sequences.publicSequences.length>0">
+    <h2>Apoyos visuales públicos</h2>
+    <div class="sequences-list">
+      <div class="sequence-item" *ngFor="let sequence of sequences.publicSequences" (click)="openItem(sequence.id)">
+        <div class="sequence-thumb" *ngIf="sequence.sequencePictograms && sequence.sequencePictograms.length>0" >
+          <img *ngFor="let i of numbers(sequence.sequencePictograms.length)" [src]="base_url+sequence.sequencePictograms[i].pictogram.image" width="73" alt="Thumb"/>
+        </div>
+        <hr />
+        <div class="sequence-description">{{sequence.description}}</div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

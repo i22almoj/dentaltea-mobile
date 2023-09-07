@@ -1,0 +1,37 @@
+<ion-content *ngIf="checkLoggedIn" [fullscreen]="true" slot="top">
+    <div class="container">
+      <ion-card id="login-card">
+        <ion-card-header>
+          <ion-img id="logo" width="80" src="/assets/images/logo.png"></ion-img>
+          </ion-card-header>
+      
+        <ion-card-content>
+          <ion-item>
+            <ion-input class="text" type="text" placeholder="Correo electrónico" [(ngModel)]="data.email"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-input class="text" [type]="passwordType" clearOnEdit="false" placeholder="Contraseña" [(ngModel)]="data.password"></ion-input>
+            <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+        </ion-item>
+  
+        <ion-button  (click)="login()">
+          Acceder
+        </ion-button>
+  
+        <a id="forgot-password" routerLink="/resetpass" class="small-text">¿Has olvidado tu contraseña?</a>
+          
+        </ion-card-content>
+      </ion-card>
+  
+   <hr /><br />
+  
+   ¿No tienes una cuenta?<br />
+   <ion-button  id="button-register" href="/registro">
+    Regístrate
+  </ion-button>
+  
+  
+  </div>
+      
+</ion-content>

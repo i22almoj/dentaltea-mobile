@@ -1,0 +1,27 @@
+<ion-content *ngIf="checkLoggedIn" [fullscreen]="true">
+  
+  <div id="homeLogo">
+    <ion-img src="./assets/images/logo.png"  alt="DentalTEA" />
+  </div>
+  <nav id="mainMenu">
+    <ion-item routerLink="/app/citas">
+      <ion-icon ios="calendar" md="calendar" position="stacked"></ion-icon>
+      <ion-label>Citas</ion-label>
+    </ion-item>
+    <ion-item routerLink="/app/apoyos-visuales">
+      <ion-icon ios="images" md="images" position="stacked"></ion-icon>
+      <ion-label>Apoyos visuales</ion-label>
+    </ion-item>
+    <ion-item routerLink="/app/consejos">
+      <ion-icon ios="chatbox-ellipses" md="chatbox-ellipses" position="stacked"></ion-icon>
+      <ion-label>Consejos</ion-label>
+    </ion-item>
+    <ion-item routerLink="/app/mi-cuenta">
+      <ion-icon ios="person" md="person" position="stacked"></ion-icon>
+      <ion-label>Mi cuenta</ion-label>
+    </ion-item>
+  </nav>
+  
+  
+
+</ion-content>

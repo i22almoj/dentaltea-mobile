@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a routerLink="/app/apoyos-visuales"><ion-icon name="arrow-back-outline"></ion-icon></a> Apoyo visual
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="sequence" [fullscreen]="true">
+  <div id="item-actions">
+    <ion-button fill="outline" (click)="save()"><ion-icon name="save"></ion-icon> Guardar</ion-button>
+  </div>
+  
+  <div id="sequence-form">
+    <label for="sequence-description-input">Descripción *</label>
+    <ion-textarea id="sequence-description-input" [(ngModel)]="sequence.description"></ion-textarea>
+
+    <ion-button *ngIf="sequence && sequence.sequencePictograms && sequence.sequencePictograms.length>0" id="add-pictogram-btn-top" class="add-pictogram-btn" (click)="openModal('top')"><ion-icon name="arrow-down-outline"></ion-icon> Añadir pictograma</ion-button>
+
+    <ion-list>
+      <ion-reorder-group mode="ios" id="sequence-pictograms" [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
+        <ion-item *ngFor="let item of sequence.sequencePictograms; let i=index;"  [id]="'sequence-pictogram-item-'+(i+1)">
+          <div class="sequence-pictogram"> 
+            <input type="hidden" [id]="'pictogram-id-input-'+item.pictogram_id" class="pictogram-id-input" [(ngModel)]="item.pictogram_id"/>
+            <img  [src]="base_url+item.pictogram.image" width="120" alt="Pictogram"/>
+            <ion-textarea [id]="'pictogram-description-input-'+item.pictogram_id" class="pictogram-description-input" [(ngModel)]="item.description"></ion-textarea> 
+            <ion-button class="deleteElement" fill="outline" (click)="deleteElement(i)"><ion-icon name="trash"></ion-icon> Eliminar</ion-button>
+          </div>
+          <ion-reorder slot="end"></ion-reorder>
+        </ion-item>
+      </ion-reorder-group>
+    </ion-list>
+
+    <ion-button *ngIf="sequence && sequence.sequencePictograms && sequence.sequencePictograms.length>0" id="add-pictogram-btn-bottom" class="add-pictogram-btn" (click)="openModal('bottom')"><ion-icon name="arrow-up-outline"></ion-icon> Añadir pictograma</ion-button>
+    <ion-button *ngIf="!sequence || !sequence.sequencePictograms || sequence.sequencePictograms.length==0" id="add-pictogram-btn-bottom" class="add-pictogram-btn" (click)="openModal('bottom')"><ion-icon name="add-circle"></ion-icon> Añadir pictograma</ion-button>
+
+    <ion-button id="save-btn" (click)="save()"><ion-icon name="save"></ion-icon> Guardar</ion-button><br />
+    <p>Campos obligatorios *</p>
+    
+  </div>
+
+  <ion-modal  [isOpen]="modalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="closeModal()">Cancelar</ion-button>
+          </ion-buttons>
+          </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-title>Selecciona un pictograma</ion-title>
+        <div id="pictograms" class="pictograms-list-wrap">
+          
+          <div class="pictograms-list" *ngIf="pictograms">
+            <div class="pictogram-item" *ngFor="let pictogram of pictograms" (click)="addPictogram(pictogram)">
+              <img [src]="base_url+pictogram.image" width="100" alt="Thumb"/>
+              
+              <div class="pictogram-description">{{pictogram.description}}</div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

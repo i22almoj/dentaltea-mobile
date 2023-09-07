@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><a routerLink="/app/home"><ion-icon name="arrow-back-outline"></ion-icon></a> Mi cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="content">
+    <div id="item-actions">
+      <ion-button fill="outline" (click)="logout()"><ion-icon name="exit"></ion-icon> Cerrar sesión</ion-button> 
+      <ion-button fill="outline" (click)="askDeleteAccount()"><ion-icon name="trash"></ion-icon> Eliminar cuenta</ion-button>
+    </div>
+
+      <div id="form-user-data" class="user-form">
+
+       
+        <ion-text>Tus datos:</ion-text>
+      <!--<ion-label id="title-content">TUS DATOS</ion-label>-->
+            <ion-item>
+              <ion-input class="text" clearOnEdit="false" placeholder="Nombre *" [(ngModel)]="data.name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input class="email" clearOnEdit="false" placeholder="Email *" [(ngModel)]="data.email"></ion-input>
+            </ion-item>
+            
+            <ion-button  (click)="save()">Guardar datos</ion-button>
+      </div>
+      
+      <div id="form-change-password" class="user-form">
+          <ion-text>Cambiar contraseña:</ion-text>
+          <ion-item>
+              <ion-input class="text" placeholder="Contraseña nueva *" [type]="passwordType" clearOnEdit="false" [(ngModel)]="userNewPassword"></ion-input>
+              <ion-icon [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+          </ion-item>
+          <ion-item>
+              <ion-input class="text" placeholder="Confirmar contraseña nueva *" [type]="passwordType" clearOnEdit="false" [(ngModel)]="userNewPassword2"></ion-input>
+              <ion-icon [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+          </ion-item>
+
+          <ion-button  (click)="savePass()">Cambiar contraseña</ion-button><br />
+          <p>Campos obligatorios *</p>
+      </div>
+
+      
+  </div>
+</ion-content>
+

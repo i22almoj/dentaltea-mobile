@@ -1,0 +1,200 @@
+ion-header{
+    ion-title{
+        ion-icon{
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+        }
+    }
+}
+
+$color-primary: #0098de;
+
+ion-content{
+  --background: #fafafa;
+  #calendar-action-toolbar{
+    height: 36px;
+    
+    ion-grid{
+      padding: 0;
+      ion-row{
+        padding: 0 5px;
+        ion-col{
+          padding: 0;
+          ion-item{
+            --border: none;
+            --border-width: 0;
+            text-align: left;
+            justify-items: flex-start;
+            &::part(native){
+              padding-left: 0;
+              --padding: 0;
+              .item-inner{
+                  border: none !important;
+                  border-width: 0 !important;
+                  --border-width: 0;
+              }
+            }
+            ion-select{
+              padding: 0;
+              font-size: 0;
+              width: 20px;
+              display: inline-block;
+              height: 32px;
+
+              ion-select-option{
+                font-size: 13px;
+
+                &.colorgris{
+                  color: #424242;
+                }
+              }
+
+              &::part(text){
+                
+              }
+              
+              
+            }
+          
+            ion-label{
+              font-size: 13px;
+              margin: 0 0 0px;
+              display: flex;
+              
+              ion-icon{
+                width: 21px;
+                position: relative;
+                top: -8px;
+                margin-right: 5px;
+                color: $color-primary;
+              }
+            }
+            --padding: 0 0 10px;
+            align-items: end;
+            &#ion-item-categories{
+              /*width: 135px;*/
+              cursor: pointer;
+              display: block;
+              align-items: flex-start;
+              padding-top: 3px;
+              --padding-top:10px;
+              ion-popover ion-item ion-label{
+                font-weight: bold;
+              }
+            }
+
+            &#ion-item-new{
+              text-align: right;
+              display: block;
+              align-items: flex-start;
+              padding-top: 3px;
+              
+              ion-buttons{
+                margin: 0;
+                ion-button{
+                  font-size: 13px;
+                  color: #424242;
+                  margin: 0;
+                  text-transform: uppercase;
+
+                  &::part(native){
+                    padding-right: 0;
+                    color: #424242;
+                  }
+
+                  ion-icon{
+                    width: 21px;
+                    margin-right: 5px;
+                    color: $color-primary;
+                  }
+                  
+                }
+              }
+            }
+          }
+
+          #categories-open{
+            padding-left:10px;
+          }
+
+          #today-button{
+            font-size: 13px;
+            color: #424242;
+            padding-top:10px;
+            text-transform: none;
+            margin: 0;
+            position: relative;
+            left: 0px;
+            text-transform: uppercase;
+            &::part(native){
+              padding-right: 0;
+              color: #424242;
+            }
+
+            ion-icon{
+              width: 21px;
+              margin-right: 5px;
+              color: $color-primary;
+            }
+          }
+
+          #add-button{
+            font-size: 13px;
+            color: #424242;
+            padding-top:10px;
+            text-transform: none;
+            margin: 0;
+          }
+          
+        
+        }
+      }
+    }
+  }
+
+  ion-popover, ion-popover ion-select-popover, ion-popover ion-select-popover ion-list, ion-popover ion-select-popover ion-list ion-item, ion-popover ion-select-popover ion-list ion-item ion-checkbox, ion-item.select-interface-option{
+    font-size: 13px !important;
+  }
+
+  ion-popover ion-content::part(scroll){
+    padding: 0px;
+  }
+
+
+  ion-content > .container {
+    max-width: 100%;
+    width: 600px;
+    margin: auto;
+
+  }
+
+  #calendar-title-toolbar{
+    ion-grid{
+      padding: 0;
+    ion-row{
+        ion-col{
+          padding: 0;
+          ion-title{
+            padding: 0 10px;
+            font-weight: 500;
+            text-align: center;
+          }
+
+          ion-button{
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .event-detail{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+
+  }
+}

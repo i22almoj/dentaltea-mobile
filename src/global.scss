@@ -1,0 +1,178 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-accordion-group{
+    ion-accordion{
+     
+        color: #444;
+
+        .accordion-description{
+            padding: 15px;
+            
+
+            ul{
+                padding: 0 0 0 20px;
+                li {
+                    list-style-type: "➢";
+                    list-style-position: outside;
+                    padding-left: 10px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+calendar {
+    table{
+      thead{
+        background: #f9f9f9;
+        ;
+        th{
+          font-weight: 600;
+          color: #424242;
+          border-color: #eee !important;
+          border-bottom: solid 2px #424242 !important;
+          border-top: solid 2px #424242 !important;
+          background: #fafafa;
+        }
+
+        
+      }
+      td{
+        border-color: #666 !important;
+        background: #fff;
+      }
+      td.monthview-selected{
+        border: solid 2px #424242 !important;
+        background: #eee !important;
+        color: #000 !important;
+      }
+
+      td.monthview-current.monthview-primary-with-event{
+        background: #0098de99 !important;
+        color: #fff !important;
+        border: solid 2px #424242 !important;
+      }
+
+      td.monthview-primary-with-event, td.monthview-selected.monthview-primary-with-event{
+        background: #0098de99 !important;
+        color: #fff !important;
+        font-weight: 500;
+      }
+      td.monthview-current.monthview-primary-with-event{
+        background: #0098de99 !important;
+      }
+      td.monthview-selected.monthview-primary-with-event{
+        background: #0098de !important;
+      }
+      
+
+      td.monthview-secondary-with-event{
+        background: #DDD !important;
+        color: #999 !important;
+        font-weight: 500;
+      }
+    }
+  }
+
+  ion-alert, .sc-ion-alert-md-h{
+    max-width: 100%;
+    width: 100%; 
+    --width: 95%;
+    --min-width: 95%;
+    --max-width: 95%;
+}
+
+.monthview-container .event-detail-container .item{
+  font-size: 13px;
+  color: #424242;
+  padding: 0 10px 0;
+  
+  &::part(native){
+    padding-left:0px;
+  }
+
+  .event-detail{
+    padding: 7px 0 10px;
+  }
+    
+  .event-category{
+      width: 140px !important;
+      padding: 0 15px 0 10px;
+      display: block;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+   }
+
+   .event-date-title{
+    width: 80% !important;
+    width: calc(100% - 120px) !important;
+    display: block;
+    padding: 10px 15px;
+    text-transform: none;
+    font-size: 12px;
+
+    .event-date{
+      font-size: 15px;
+    }
+
+    .event-title{
+      font-size: 13px;
+      display: inline-block;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .event-description{
+      font-size: 12px;
+      color: #424242;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  }
+
+  .event-detail {
+    .booked{
+      ion-buttons{
+        float: right;
+        position: relative;
+        top: -7px;
+      }
+    }
+
+  }
+}
+
+.monthview-container .event-detail-container .item{
+    cursor: pointer;
+  }
+
+  .monthview-container .event-detail-container .item:hover{
+    --background: #f6f6f6;
+  }

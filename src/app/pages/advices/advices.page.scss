@@ -1,0 +1,22 @@
+ion-header{
+    ion-title{
+        ion-icon{
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+        }
+    }
+}
+
+ion-accordion-group{
+    ion-accordion{
+        ion-img{
+            width: 100px;
+            display: block;
+            margin: 10px auto 0px;
+        }
+        color: #444;
+
+        
+    }
+}

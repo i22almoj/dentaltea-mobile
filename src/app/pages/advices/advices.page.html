@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a routerLink="/app/home"><ion-icon name="arrow-back-outline"></ion-icon></a> Consejos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Consejos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-accordion-group id="advices-list" *ngIf="advices && advices.length>0" [value]="advices[0].id">
+    
+    <ion-accordion *ngFor="let advice of advices" [value]="advice.id" show="true">
+      <ion-item slot="header" color="light">
+        <ion-label>{{advice.title}}</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-img *ngIf="advice.image && advice.image !=''" src="{{base_url}}{{advice.image}}" />
+        <div class="accordion-description" [innerHTML]="advice.content"></div>
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+</ion-content>

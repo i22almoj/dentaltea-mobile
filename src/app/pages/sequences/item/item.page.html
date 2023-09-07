@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a routerLink="/app/apoyos-visuales"><ion-icon name="arrow-back-outline"></ion-icon></a> Apoyo visual
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="sequence" [fullscreen]="true">
+  <div *ngIf="sequence && sequence.id && sequence.edit" id="item-actions">
+    <ion-button fill="outline" routerLink="/app/apoyos-visuales/editar/{{sequence.id}}"><ion-icon name="create"></ion-icon> Editar</ion-button> 
+    <ion-button fill="outline" (click)="deleteItem(sequence.id)"><ion-icon name="trash"></ion-icon> Eliminar</ion-button>
+  </div>
+
+  
+  
+    <div id="sequence-description">{{sequence.description}}</div>
+    <div id="sequence-pictograms">
+      <div *ngFor="let item of sequence.sequencePictograms" class="sequence-pictogram">
+        <img  [src]="base_url+item.pictogram.image" width="180" alt="Pictogram"/>
+        <div class="pictogram-description">{{item.description}}</div>
+      </div>
+      
+
+    </div>
+</ion-content>

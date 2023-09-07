@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <a (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon></a> Cita
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="date" [fullscreen]="true">
+  <div *ngIf="date.id" id="item-actions">
+    <ion-button fill="outline" routerLink="/app/citas/editar/{{date.id}}"><ion-icon name="create"></ion-icon> Editar</ion-button> 
+    <ion-button fill="outline" (click)="deleteItem(date.id)"><ion-icon name="trash"></ion-icon> Eliminar</ion-button>
+  </div>
+
+  <div id="date-information">
+    <div id="date-datetime">
+    <span id="date-day"><ion-icon name="calendar-outline"></ion-icon> {{date.date}}</span>
+    <span id="date-hour"><ion-icon name="time-outline"></ion-icon> {{date.hour}}</span>
+    </div>
+    <div id="date-notifications" *ngIf="date.notificationsMobile==1 && date.notificationsEmail==1">
+      <ion-icon name="notifications-outline"></ion-icon> Notificaciones en este dispositivo y por email
+    </div>
+    <div id="date-notifications" *ngIf="date.notificationsMobile==1 && date.notificationsEmail==0">
+      <ion-icon name="notifications-outline"></ion-icon> Notificaciones en este dispositivo
+    </div>
+    <div id="date-notifications" *ngIf="date.notificationsMobile==0 && date.notificationsEmail==1">
+      <ion-icon name="notifications-outline"></ion-icon> Notificaciones por email
+    </div>
+    <div id="date-description">{{date.description}}</div>
+
+  </div>
+  <div *ngIf="date && date.sequence"  id="date-sequence">
+    <h3>Apoyo visual <ion-icon aria-hidden="true" name="images-outline"></ion-icon></h3>
+    <div id="sequence-description">{{date.sequence.description}}</div>
+    <div id="sequence-pictograms">
+      <div *ngFor="let item of date.sequence.sequencePictograms" class="sequence-pictogram">
+        <img  [src]="base_url+item.pictogram.image" width="180" alt="Pictogram"/>
+        <div class="pictogram-description">{{item.pictogram.description}}</div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

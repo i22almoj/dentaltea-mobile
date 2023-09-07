@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><a routerLink="/"><ion-icon name="arrow-back-outline"></ion-icon></a> Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="content">
+
+      <div id="form-user-data" class="user-form">
+        <ion-text>Introduce tu email:</ion-text>
+            <ion-item>
+              <ion-input class="email" clearOnEdit="false" placeholder="Email" [(ngModel)]="email"></ion-input>
+            </ion-item>
+            <ion-button  (click)="send()">Cambiar contraseña</ion-button>
+      </div>
+      
+  </div>
+</ion-content>

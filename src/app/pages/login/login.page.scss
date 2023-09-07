@@ -1,0 +1,138 @@
+ion-content {
+    /*--background: center / cover no-repeat url('../../../assets/gradient-background.jpg'), transparent !important;*/
+    .centered_container {
+        .login-rectangle {
+            background-color: white;
+            padding: 6px;
+            margin-top: 7%;
+        }
+    }
+}
+
+ion-content{
+    --background:  rgba(0, 152, 222, 0.05) !important;
+    color: #3670de;
+ }
+ .container {
+    text-align: center;
+    width: 400px;
+    max-width: 100%;
+    margin: 0px auto 0;
+    padding: 10px 10px 10px;
+    color: #444;
+}
+
+#logos-login{
+    padding: 15px;
+    width: 250px;
+    margin: 10px auto 0;
+    ion-img{
+        margin-bottom: 10px;
+    }
+}
+
+#login-card{
+    font-family: 'Roboto';
+    background: center / cover no-repeat url('../../../assets/gradient-background.jpg'), transparent !important;
+    color: #fff;
+
+    ion-button{
+        display: block;
+        margin-bottom: 0;
+    }
+
+    #logo{
+        margin: 20px auto;
+        width: 200px;
+        max-width: 100%;
+    }
+
+    ion-item{
+        --background: #fff2;
+        --border-color: transparent;
+        --padding: 0;
+        --inner-padding-end: 0px;
+        color: #fff;
+        border-bottom: solid 2px #424242;
+        margin-bottom: 10px;
+
+        &::placeholder{
+            opacity: 0.9;
+            color: #fff;
+        }
+        &::part(native){
+            padding: 0;
+
+            .item-inner{
+                padding-right: 0 !important;
+            }
+        }
+
+        ion-icon{
+            color: #fff;
+        }
+        
+        ion-input{
+            color: #fff;
+            padding: 0 10px !important;
+      
+
+            input.native-input.sc-ion-input-ios, .native-input.sc-ion-input-md{
+                padding: 10px;
+                font-size: 11px;
+            }
+        }
+        ion-icon{
+            margin: 0px 10px 0;
+        }
+        .item-native{
+            padding-left: 0;
+        }
+    }
+
+    ion-button{
+        display: block;
+        margin-bottom: 30px;
+        margin-top: 40px;
+    }
+
+    #forgot-password{
+        display: block;
+        margin-bottom: 15px;
+        text-decoration: none;
+        font-weight: 500;
+        color: #fff;
+    }
+}
+
+#button-register{
+    margin-top: 10px;
+    width: 150px;
+}
+
+
+#privacy-info{
+    width: 100%;
+    padding: 15px;
+    margin-top: 40px;
+    box-sizing: border-box;
+    color: #424242;
+    a{
+        text-decoration: none;
+        font-weight: 500;
+    }
+}
+
+#privacy-link{
+    cursor: pointer;
+}
+
+ion-modal{
+    --background: #fafafa;
+    color: #424242;
+
+    ion-title{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
